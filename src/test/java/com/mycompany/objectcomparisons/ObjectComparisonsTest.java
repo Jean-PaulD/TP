@@ -7,9 +7,12 @@
 package com.mycompany.objectcomparisons;
 
 import com.mycompany.objectcomparisons.config.ObjectComparisonConfig;
+import com.mycompany.objectcomparisons.service.Impl.ObjectClassToCompare;
+import com.mycompany.objectcomparisons.service.Impl.ObjectComparisonServiceImpl;
 import com.mycompany.objectcomparisons.service.ObjectCompareService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -36,12 +39,22 @@ public class ObjectComparisonsTest {
     private static ObjectCompareService compareService;
     
     @Test
-    public void compareObjectTest(){
+    public void compareObjectTest()throws Exception{
         
+        ObjectClassToCompare oc1 = new ObjectClassToCompare("Jean", "De Buys");
+        Assert.assertEquals(oc1.toString(),"name + surname = Jean De Buys","The 2 objects are equal");
+        
+    } 
+    /**
+     *
+     * @throws Exception
+     */
+    @Test
+    public void equalsOperatorTest() throws Exception{
+        ObjectComparisonServiceImpl objectComparison = new ObjectComparisonServiceImpl();
+        Assert.assertEquals(objectComparison.compareObjects(),false,"The 2 objects are equal()udsing == operator");
     }
     
-    
-          
     @BeforeClass
     public static void setUpClass() throws Exception {
         ApplicationContext ctx = 
