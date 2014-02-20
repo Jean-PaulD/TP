@@ -11,7 +11,7 @@ import com.mycompany.objectcomparisons.service.ObjectCompareService;
  *
  * @author student
  */
-public class ObjectComparisonServiceImpl{
+public class ObjectComparisonServiceImpl {// Not  real Impl Please ignore sir
 
     /*
     @Override
@@ -24,6 +24,10 @@ public class ObjectComparisonServiceImpl{
         return null;
     }*/
 
+     String name;
+     String surname;
+
+    
     public boolean compareObjects() {
        ObjectClassToCompare object1 = 
                new ObjectClassToCompare("jean", "De Buys");
@@ -32,6 +36,29 @@ public class ObjectComparisonServiceImpl{
        if(object1 == object2)
        return true;
        else return false;
+    }
+   
+
+    
+
+        public void setConcatStrings(String n, String s) {
+    }
+
+        public String getConcatStrings() {
+        return name + " " + surname;
+    }
+
+    @Override
+    public String toString() {
+        return "name + surname = " + getConcatStrings();
+    }
+
+    public boolean returnTrue() {
+        return true;
+    }
+
+    public boolean returnFalse() {
+        return false;
     }
 
 }

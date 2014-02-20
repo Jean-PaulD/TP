@@ -13,4 +13,7 @@ package com.mycompany.objectcomparisons.service;
 public interface ObjectCompareService {
     void setConcatStrings(String a, String b);
     String getConcatStrings();
+    boolean returnTrue();
+    boolean returnFalse();
+    boolean compareObjects();
 }
