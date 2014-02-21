@@ -9,6 +9,7 @@ import com.mycompany.objectcomparisons.config.ObjectComparisonConfig;
 import com.mycompany.objectcomparisons.service.Impl.ObjectClassToCompare;
 import com.mycompany.objectcomparisons.service.Impl.ObjectComparisonServiceImpl;
 import com.mycompany.objectcomparisons.service.ObjectCompareService;
+import org.junit.Ignore;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.testng.Assert;
@@ -75,14 +76,26 @@ public class ObjectComparisonsTest {
         ObjectClassToCompare objectComparison = new ObjectClassToCompare();
         Assert.fail("This test has failed");
     }
-    /*
-    @Test(   = IndexOutOfBoundsException.class)
-    public void verifyZipCodeGroupException() throws Exception {
-        Matcher mtcher = this.pattern.mtcher("22101-5051");
-        boolean isValid = mtcher();
-        mtcher.group(2);
-    }*/
 
+    @Ignore("This regular expression isnt working yet so ignore it")
+    @Test
+    public void ignoreTest() {
+        Assert.fail("This test has been ignored");
+    }
+
+    @Test
+    public void verifyArrayContents() throws Exception {
+        ObjectClassToCompare objectComparison = new ObjectClassToCompare();
+        assertEquals(objectComparison.returnFirstArray(),objectComparison.returnSecondArray(),"The arrays are not suppose to be equal");
+    }
+
+    /*
+     @Test(   = IndexOutOfBoundsException.class)
+     public void verifyZipCodeGroupException() throws Exception {
+     Matcher mtcher = this.pattern.mtcher("22101-5051");
+     boolean isValid = mtcher();
+     mtcher.group(2);
+     }*/
     @BeforeClass
     public static void setUpClass() throws Exception {
         ApplicationContext ctx =

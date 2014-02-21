@@ -6,6 +6,7 @@
 package com.mycompany.objectcomparisons.service.Impl;
 
 import com.mycompany.objectcomparisons.service.ObjectCompareService;
+import java.lang.reflect.Array;
 
 /**
  *
@@ -15,17 +16,29 @@ public class ObjectClassToCompare implements ObjectCompareService {
 
     String name;
     String surname;
-
+    String[] firstArray;
+    String[] secondArray;     
+    
     public ObjectClassToCompare() {
+        
     }
 
     public ObjectClassToCompare(String n, String s) {
 
         name = n;
         surname = s;
-
+        firstArray = new String[]{name, surname};
+        secondArray = new String[]{name, surname};
+    }
+    
+    public String[] returnFirstArray(){
+        return firstArray;
     }
 
+    public String[] returnSecondArray(){
+        return secondArray;
+    }
+    
     public boolean compareObjects() {
         ObjectClassToCompare object1 =
                 new ObjectClassToCompare("jean", "De Buys");
